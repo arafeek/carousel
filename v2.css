@@ -16,9 +16,6 @@ ul.slides {
 	list-style: none;
 	margin:0;
 	padding:0;
-	display: flex;
-	display: -webkit-flex;
-	display: -ms-flex;
 }
 
 ul.slides>li {
@@ -26,6 +23,7 @@ ul.slides>li {
 	text-align:center;
 	display:none;
 	width:100%;
+	position:relative;
 	transition: .6s ease-in-out left;
 }
 ul.slides>li.active {

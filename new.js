@@ -27,25 +27,25 @@ $(document).ready(function(){
 	  	}
 	});
 
-  	// Binds click event to thumbnail so you can control the slider with them
-  	$('ul.thumbs>li').bind('click', function() {
-  		//if this isn't already the one we're looking at, hide it and show the new one
-  		var newPosition = $(this).index()
-  		if(!(newPosition == currentPosition)) {
-  			animateSlider(newPosition)
-  		}
-  	});
+	// Binds click event to thumbnail so you can control the slider with them
+	$('ul.thumbs>li').bind('click', function() {
+		//if this isn't already the one we're looking at, hide it and show the new one
+		var newPosition = $(this).index()
+		if(!(newPosition == currentPosition)) {
+			animateSlider(newPosition)
+		}
+	});
 
-  	function animateSlider(newPosn) {
-  		slides.eq(currentPosition).removeClass('active')
-  		thumbnails.eq(currentPosition).removeClass('active')
-  		currentPosition = newPosn
-  		slides.eq(currentPosition).addClass('active')
-  		thumbnails.eq(currentPosition).addClass('active')
-  	}
+	function animateSlider(newPosn) {
+		slides.eq(currentPosition).removeClass('active')
+		thumbnails.eq(currentPosition).removeClass('active')
+		currentPosition = newPosn
+		slides.eq(currentPosition).addClass('active')
+		thumbnails.eq(currentPosition).addClass('active')
+	}
 
-  	function init() {
-		slides.eq(currentPosition).addClass('active');
-		thumbnails.eq(currentPosition).addClass('active');
-  	}
+	function init() {
+	slides.eq(currentPosition).addClass('active');
+	thumbnails.eq(currentPosition).addClass('active');
+	}
 });
