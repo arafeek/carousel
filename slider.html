@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Image Slider</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div id="content" style="width:80%; margin: 0 auto">
+		<div id="slideshow">
+			<img class="control" id="rightControl" src="arrow_right.png" alt="NEXT" tabindex="0"></img>
+			<img class="control" id="leftControl" src="arrow_left.png" alt="PREV" tabindex="0"></img>
+			<div id="slidesContainer">
+				<ul class="slides">
+
+					<li>
+						<img src="http://cdn.sheknows.com/articles/2013/04/Puppy_2.jpg" alt="cute" />
+					</li>
+
+					<li>
+						<img src="http://www.pluspets.net/wp-content/uploads/2010/07/Cutest-Puppies1.jpg" alt="cuter"/>
+					</li>
+
+					<li>
+						<img src="http://static.ddmcdn.com/gif/labs-too-cute-puppies-03-625x450-1.jpg" alt="cutest" />
+					</li>
+					
+					<li>
+						<img src="http://www.pluspets.net/wp-content/uploads/2010/07/Cutest-Puppies10.jpg" alt="even cuter" />
+					</li>
+
+				</ul>
+			</div>
+
+			<div id="thumbnails">
+				<ul class="thumbs">
+					<li tabindex="0" >
+						<img src="http://cdn.sheknows.com/articles/2013/04/Puppy_2.jpg" alt="cute thumbnail" class="thumb"/>
+					</li>
+
+					<li tabindex="0">
+						<img src="http://www.pluspets.net/wp-content/uploads/2010/07/Cutest-Puppies1.jpg" alt="cuter thumbnail"  class="thumb"/>
+					</li>
+
+					<li tabindex="0">
+						<img src="http://static.ddmcdn.com/gif/labs-too-cute-puppies-03-625x450-1.jpg" alt="cutest thumbnail"  class="thumb"/>
+					</li>
+					
+					<li tabindex="0">
+						<img src="http://www.pluspets.net/wp-content/uploads/2010/07/Cutest-Puppies10.jpg" alt="even cuter thumbnail"  class="thumb"/>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+
+
+	</div>
+	<script src="slider.js"></script>
+</body>
+</html>
