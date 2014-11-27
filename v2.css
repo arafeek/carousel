@@ -19,7 +19,6 @@ ul.slides {
 }
 
 ul.slides>li {
-	overflow:hidden;
 	text-align:center;
 	display:none;
 	width:100%;
