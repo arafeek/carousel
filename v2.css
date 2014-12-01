@@ -1,3 +1,16 @@
+/*Styling Rules
+ >> The left and right arrows can be styled using #leftControl and #rightControl respectively
+ >> The hover and focus styling for the buttons is on the .control class
+
+ >> Thumbnails as a group use the ul.thumbs selector or ul.thumbs>li for each thumbnail
+ >> Carousel slides can be accessed via ul.slides
+
+ >> If an additional class is not added to ul.slides, the default action is to slide between slides (currently needing improvement)
+ >> An example of custom transition effects can be found at the bottom of the style sheet
+
+*/
+
+
 body {
 	color: #2c241b;
 	line-height: 1.67em;
@@ -16,23 +29,33 @@ ul.slides {
 	list-style: none;
 	margin:0;
 	padding:0;
+	height:100%;
 }
 
 ul.slides>li {
-	text-align:center;
-	display:none;
-	width:100%;
-	position:relative;
-	transition: .6s ease-in-out left;
+	position : absolute;
+	left: 100%;
+	transition: 0.4s linear left;
+	-webkit-transition: 0.4s linear left;
 }
+
 ul.slides>li.active {
 	display:block;
+	position:relative;
+	width:100%;
 	left:0;
+	height:100%;
+}
+
+ul.slides>li>img {
+	max-height: 100%;
+	max-width: 100%;
 }
 
 ul.thumbs {
 	padding:0;
 	list-style: none;
+	display: inline-block;
 }
 
 ul.thumbs>li {
@@ -41,6 +64,8 @@ ul.thumbs>li {
 	height:50px;
 	display: inline-block;
 }
+
+
 
 ul.thumbs>li:hover, ul.thumbs>li:focus, ul.thumbs>li.active {
 	border: 3px solid green;
@@ -53,24 +78,18 @@ li>img {
 
 /* ID'S */
 
-#slideshow #slidesContainer ul.slides>li {
-	margin: 0 auto;
-	width: 540px;
-	height: 263px;
-}
 
 #slideshow #slidesContainer {
 	margin: 0;
 	width: 90%;
-	/*height: 400px;*/
-	overflow: auto;
+	height: 400px;
+	overflow: hidden;
 	position: relative;
 }
 
 #slideshow {
 	margin: 0 auto;
 	width: 100%;
-	/*height: 400px;*/ /* any real reason for this? */
 	position: relative;
 	text-align:center;
 }
@@ -78,30 +97,23 @@ li>img {
 #rightControl {
 	top: 160px;
 	right: 0;
-	/*background: transparent url(arrow_right.png) no-repeat 0 0;*/
 }
 
 #leftControl {
 	top: 110px;
 	right: 0;
-	/*background: transparent url(arrow_left.png) no-repeat 0 0;*/
-}
-
-#thumbnails {
-	display:inline-block;
 }
 
 /* CLASSES */
 
 
 .control {
-	/*text-indent: -10000px;*/
 	position: absolute;
 	cursor: pointer;
 
 }
 
-.control:hover {
+.control:hover, .control:focus {
 	background-color: red;
 }
 
@@ -111,9 +123,26 @@ li>img {
 	pointer-events:none;
 }
 
-
 .thumb {
 	width:100%;
+}
+
+/* Special transition classes below*/
+ul.slides.animation-fade > li {
+	position: absolute;
+	left:0;
+	top:0;
+	opacity: 0;
+	width:100%;
+	height:100%;
+	transition: 0.4s opacity;
+	-webkit-transition: 0.4s opacity;
+} 
+
+ul.slides.animation-fade >li.active {
+	display: block;
+	position: relative;
+	opacity: 100;
 }
 
 

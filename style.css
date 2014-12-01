@@ -16,12 +16,18 @@ ul.slides {
 	list-style: none;
 	margin:0;
 	padding:0;
-	display: block;
+	display: flex;
+	display: -webkit-flex;
+	display: -ms-flex;
 }
 
 ul.slides>li {
 	overflow:hidden;
 	text-align:center;
+}
+ul.slides>li>img {
+	max-height: 100%;
+	max-width: 100%;
 }
 
 ul.thumbs {
