@@ -133,6 +133,7 @@ li>img {
 	float: none;
 	text-align: center;
 	display: block;
+	padding: 0;
 }
 
 .carousel-bullets li {
@@ -182,7 +183,9 @@ li>img {
 	text-align:center;
 }
 
-
+.slideshow-controls {
+	display: inline-block;
+}
 .thumb {
 	width:100%;
 	height : auto;

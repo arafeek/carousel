@@ -8,7 +8,8 @@ $(document).ready(function(){
 	var autoSlideEnabled = autoSlide;
 	var carouselTimer = null;
 
-	init()
+	init();
+	
   	$('.control').bind('click', function(){
 	    var newPosition
 		if($(this).attr('id')=='rightControl') {
