@@ -1,8 +1,9 @@
 Jan 26 2015
 Features: 
 >> added pause / play button
+>> support for text in a slide (slide-annotation)
 
-
+-- Removed the ability to click on the slide to play / pause the animation, must now use the dedicated button
 
 ----------------------------
 December 06 2014

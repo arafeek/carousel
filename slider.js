@@ -28,7 +28,8 @@ $(document).ready(function(){
   		function() { if (autoSlide && autoSlideEnabled) resetTimer(); } // on mouseleave
   	);
 
-  	$('#slidesContainer, .animation-control-button').bind('click', function() {
+	// removed :#slidesContainer for now since it caused an issue with the play/plause button displaying correctly
+  	$('.animation-control-button').bind('click', function() {
   		if(autoSlide) {
 	  		toggleSlideAnimation();
 	  		if (autoSlideEnabled) {

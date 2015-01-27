@@ -207,6 +207,13 @@ li>img {
 .slideshow-controls {
 	display: inline-block;
 }
+
+.slide-annotation {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+}
+
 .thumb {
 	width:100%;
 	height : auto;
