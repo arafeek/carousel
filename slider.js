@@ -1,12 +1,13 @@
 $(document).ready(function(){
 
 	var currentPosition = 0;
-	var slides = $('ul.slides>li');
+	var slides = $('ul.slides>li').length === 0 ? $('div.slideshowStrip>div') : $('ul.slides>li');
 	var thumbnails = $('ul.thumbs>li').length === 0 ? $('ol.carousel-bullets>li') : $('ul.thumbs>li');
 	var numberOfSlides = slides.length;
 	var autoSlide = ($('ul.slides.autoSlide').length === 0) ? false : true;
 	var autoSlideEnabled = autoSlide;
 	var carouselTimer = null;
+	var slideshowControls = $('#slideshow-controls');
 
 	init();
 	
@@ -27,7 +28,7 @@ $(document).ready(function(){
   		function() { if (autoSlide && autoSlideEnabled) resetTimer(); } // on mouseleave
   	);
 
-  	$('#slidesContainer').bind('click', function() {
+  	$('#slidesContainer, .animation-control-button').bind('click', function() {
   		if(autoSlide) {
 	  		toggleSlideAnimation();
 	  		if (autoSlideEnabled) {
@@ -40,7 +41,7 @@ $(document).ready(function(){
   		}
   	});
 
-    $('ul.thumbs>li, .control, #slidesContainer,ol.carousel-bullets>li').keypress(function(event){
+    $('ul.thumbs>li, .control, #slidesContainer,ol.carousel-bullets>li, .animation-control-button').keypress(function(event){
   		if(event.keyCode == 13){
   			$(this).click();
 	  	}
@@ -64,6 +65,16 @@ $(document).ready(function(){
 		}, 3000);
 	}
 
+	$('#slideshow-controls>img.button-play').bind('click', function() {
+		$(this).css(({'display':'none'}));
+		$('#slideshow-controls>img.button-pause').css(({'display':'inline'}))
+	});
+
+	$('#slideshow-controls>img.button-pause').bind('click', function() {
+		$(this).css(({'display':'none'}));
+		$('#slideshow-controls>img.button-play').css(({'display':'inline'}))
+	})
+
 
 // HELPERS
 
@@ -77,8 +88,7 @@ $(document).ready(function(){
 		currentPosition = newPosn
 		slides.eq(currentPosition).addClass('active')
 
-		$('ul.slides>li.next').removeClass('next')
-		$('ul.slides>li.prev').removeClass('prev')
+		slides.removeClass('next prev')
 		
 		slides.filter( function (index) {
 			return index < currentPosition;
@@ -87,8 +97,8 @@ $(document).ready(function(){
 			return index > currentPosition;
 		}).addClass('next')
 
-		slides.eq(currentPosition).addClass('active')
-		thumbnails.eq(currentPosition).addClass('active')
+		slides.eq(currentPosition).addClass('active');
+		thumbnails.eq(currentPosition).addClass('active');
 	}
 
 	function init() {
@@ -102,6 +112,14 @@ $(document).ready(function(){
 		}).addClass('next')
 
 		thumbnails.eq(currentPosition).addClass('active');
+
+		// if the animation defaults, hide the play, if there is no automatic behaviour just hide both
+		if(autoSlideEnabled) {
+			$('#slideshow-controls>img.button-play').css({'display':'none'});
+		} else {
+			$('#slideshow-controls>img.button-play').css({'display':'none'});
+			$('#slideshow-controls>img.button-pause').css({'display':'none'});
+		}
 	}
 
 	function resetTimer() {

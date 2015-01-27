@@ -89,7 +89,6 @@ ul.thumbs>li {
 }
 
 ul.thumbs>li:hover, ul.thumbs>li:focus, ul.thumbs>li.active, ol.carousel-bullets>li.active {
-	/*border: 3px solid #75838B;*/
 	box-shadow:0px 0px 0px 2px #75838B inset;
 }
 
@@ -102,11 +101,15 @@ li>img {
 }
 
 
-/* ID'S */
+/*********************************************************
+
+					ID's
+
+**********************************************************/
 
 
 #slidesContainer {
-	float : left;
+	/*float : left;*/ /* causes problems */
 	margin: 0;
 	width: 100%;
 	height: auto;
@@ -124,6 +127,24 @@ li>img {
 #carousel-bullet-holder {
 	text-align: center;
 	display: inline-block;
+}
+
+
+/*********************************************************
+
+					CLASSES
+
+**********************************************************/
+
+
+
+.animation-control-button {
+	cursor: pointer;
+	max-width: 10%;
+}
+
+.button-play, .button-pause {
+	float: left;
 }
 
 .carousel-bullets {
@@ -150,11 +171,11 @@ li>img {
 .control {
 	cursor: pointer;
 		z-index : 100;
-		max-width : 100%;
+		max-width : 5%;
 }
 
 .control:hover, .control:focus {
-	background-color: red;
+	box-shadow:0px 0px 0px 2px #444 inset;
 }
 
 .disabled {
@@ -191,7 +212,11 @@ li>img {
 	height : auto;
 }
 
-/* Special transition classes below*/
+/*********************************************************
+
+				SLIDE TRANSITION ANIMATIONS
+
+**********************************************************/
 ul.slides.animation-fade > li {
 	position: absolute;
 	left:0;

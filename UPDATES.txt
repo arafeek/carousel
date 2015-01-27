@@ -1,0 +1,25 @@
+Jan 26 2015
+Features: 
+>> added pause / play button
+
+
+
+----------------------------
+December 06 2014
+
+Features:
+>> Clicking a slide now toggles the autoSlide feature if it is enabled
+>> #slidesContainer is now accessbile via TAB key
+
+
+
+---------------------------
+December 05 2014
+
+Features:
+>> Slider now has an autoSlide feature.
+>> Autoslide can be disabled by removing the autoSlide class from ul.slides
+>> Slides "pause" when you hover the mouse over the slide (not the thumbnail)
+
+Fixes:
+>> Fixed issue where slides were covering the thumbnails, preventhing them from being clicked.
