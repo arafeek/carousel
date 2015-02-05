@@ -5,11 +5,16 @@ $(document).ready(function(){
 	var thumbnails = $('ul.thumbs>li').length === 0 ? $('ol.carousel-bullets>li') : $('ul.thumbs>li');
 	var numberOfSlides = slides.length;
 	var autoSlide = ($('ul.slides.autoSlide').length === 0) ? false : true;
+	var defaultOn = ($('ul.slides.autoSlide.default-on').length === 0) ? false : true;
 	var autoSlideEnabled = autoSlide;
 	var carouselTimer = null;
 	var slideshowControls = $('#slideshow-controls');
 
 	init();
+
+	if(!defaultOn) {
+		autoSlideEnabled = false;
+	}
 	
   	$('.control').bind('click', function(){
 	    var newPosition
@@ -23,16 +28,18 @@ $(document).ready(function(){
 	    resetTimer();
   	});
 
-  	$('#slidesContainer').hover(
-  		function() { if (autoSlide && autoSlideEnabled) clearInterval(carouselTimer);}, // on mouseover
-  		function() { if (autoSlide && autoSlideEnabled) resetTimer(); } // on mouseleave
-  	);
+  	// $('#slidesContainer').hover(
+  	// 	function() { if (autoSlide && autoSlideEnabled) clearInterval(carouselTimer);}, // on mouseover
+  	// 	function() { if (autoSlide && autoSlideEnabled) resetTimer(); } // on mouseleave
+  	// );
 
 	// removed :#slidesContainer for now since it caused an issue with the play/plause button displaying correctly
   	$('.animation-control-button').bind('click', function() {
   		if(autoSlide) {
+  			console.log("autoSlide") // debug
 	  		toggleSlideAnimation();
 	  		if (autoSlideEnabled) {
+	  			console.log("autoSlideEnabled") // debug
 				carouselTimer = setInterval(function() {
 				animateSlider(currentPosition + 1);
 				}, 3000);
@@ -60,11 +67,12 @@ $(document).ready(function(){
 		}
 	});
 
-	if(autoSlide) {
+	if(defaultOn) {
 		carouselTimer = setInterval(function() {
 		animateSlider(currentPosition + 1);
 		}, 3000);
 	}
+
 
 	$('#slideshow-controls>img.button-play').bind('click', function() {
 		$(this).css(({'display':'none'}));
@@ -116,7 +124,11 @@ $(document).ready(function(){
 
 		// if the animation defaults, hide the play, if there is no automatic behaviour just hide both
 		if(autoSlideEnabled) {
-			$('#slideshow-controls>img.button-play').css({'display':'none'});
+			if(defaultOn) {
+				$('#slideshow-controls>img.button-play').css({'display':'none'});
+			} else {
+				$('#slideshow-controls>img.button-pause').css({'display':'none'});
+			}
 		} else {
 			$('#slideshow-controls>img.button-play').css({'display':'none'});
 			$('#slideshow-controls>img.button-pause').css({'display':'none'});
@@ -137,8 +149,8 @@ $(document).ready(function(){
 			autoSlideEnabled = !autoSlideEnabled
 	}
 
-	function generateControls() {
-		$('#slidesContainer').append
-	}
+	// function generateControls() {
+	// 	$('#slidesContainer').append
+	// }
 
 });

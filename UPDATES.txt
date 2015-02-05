@@ -1,3 +1,7 @@
+
+Feb 04
+Features: supplying the class default-on to the ul.slides.autoSlide node will cause it to default to animation on. Leaving it out will default it to off. NB the node must already have the autoSlide class.
+----------------------------
 Jan 26 2015
 Features: 
 >> added pause / play button
